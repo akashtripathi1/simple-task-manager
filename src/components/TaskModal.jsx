@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from './ui/dialog'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
-import { Textarea } from './ui/textarea'
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from './ui/select'
-import CalendarComponent from './ui/calendar'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select'
+import CalendarComponent from '@/components/ui/calendar'
 
 const TaskModal = ({ isOpen, onClose, onSubmit, mode, initialData }) => {
   const [title, setTitle] = useState(initialData ? initialData.title : '')

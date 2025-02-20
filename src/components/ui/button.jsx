@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const Button = ({ children, className, variant, size, ...props }) => {
-  let baseClass = 'px-4 py-2 rounded'
+  let baseClass = 'px-4 py-2 rounded-sm'
   if (variant === 'outline') {
     baseClass += ' border'
   } else if (variant === 'destructive') {

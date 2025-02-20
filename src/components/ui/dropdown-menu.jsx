@@ -9,7 +9,7 @@ export const DropdownMenuTrigger = ({ asChild, children }) => (
 )
 
 export const DropdownMenuContent = ({ children }) => (
-  <div className="absolute bg-white border mt-2 rounded shadow">{children}</div>
+  <div className="absolute bg-white border mt-2 rounded-sm shadow-sm">{children}</div>
 )
 
 export const DropdownMenuLabel = ({ children }) => (

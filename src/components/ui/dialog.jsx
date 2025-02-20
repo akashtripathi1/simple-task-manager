@@ -7,7 +7,7 @@ export const Dialog = ({ open, onOpenChange, children }) => {
       className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
       onClick={() => onOpenChange(false)}
     >
-      <div className="bg-white rounded" onClick={(e) => e.stopPropagation()}>
+      <div className="bg-white rounded-sm" onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
     </div>

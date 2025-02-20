@@ -11,10 +11,10 @@ import {
   Filter,
   CalendarClock
 } from 'lucide-react'
-import { Card, CardContent } from './ui/card'
-import { Input } from './ui/input'
-import { Button } from './ui/button'
-import { Badge } from './ui/badge'
+import { Card, CardContent } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
 import { cn } from '../lib/utils'
 import {
   DropdownMenu,
@@ -23,8 +23,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   DropdownMenuItem
-} from './ui/dropdown-menu'
-import { Toaster, useToast } from './ui/toaster'
+} from '@/components/ui/dropdown-menu'
+import { Toaster, useToast } from '@/components/ui/toaster'
 import TaskCard from './TaskCard'
 import TaskModal from './TaskModal'
 import { addTask, updateTask, deleteTask, completeTask } from '../redux/tasksSlice'
