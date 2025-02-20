@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select'
-import Calendar  from '@/components/ui/calendar'
+import Calendar from '@/components/ui/calendar'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { CalendarIcon } from 'lucide-react'
+import { format } from 'date-fns'
 
 const TaskModal = ({ isOpen, onClose, onSubmit, mode, initialData }) => {
   const [title, setTitle] = useState(initialData ? initialData.title : '')
@@ -37,25 +40,57 @@ const TaskModal = ({ isOpen, onClose, onSubmit, mode, initialData }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent>
+      <DialogContent className="sm:max-w-[425px] bg-card text-card-foreground">
         <DialogHeader>
           <DialogTitle>{mode === 'create' ? 'Create Task' : 'Update Task'}</DialogTitle>
+          <DialogDescription>
+            {mode === 'create' 
+              ? 'Add a new task to your list.' 
+              : 'Update the details of your existing task.'}
+          </DialogDescription>
         </DialogHeader>
         <div className="space-y-4">
-          <div>
-            <label>Title</label>
-            <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Task title" />
+          <div className="space-y-2">
+            <label className="text-sm font-medium">Title</label>
+            <Input
+              id="title"
+              placeholder="Enter task title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
           </div>
-          <div>
-            <label>Description</label>
-            <Textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Task description" />
+          <div className="space-y-2">
+            <label className="text-sm font-medium">Description</label>
+            <Textarea 
+              value={description} 
+              onChange={(e) => setDescription(e.target.value)} 
+              placeholder="Task description" 
+            />
           </div>
-          <div>
-            <label>Due Date</label>
-            <Calendar date={dueDate} onChange={setDueDate} />
+          <div className="space-y-2">
+            <label className="text-sm font-medium">Due Date</label>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="w-full justify-start text-left font-normal"
+                >
+                  <CalendarIcon className="mr-2 h-4 w-4" />
+                  {dueDate ? format(dueDate, "PPP") : <span>Pick a date</span>}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0">
+                <Calendar
+                  mode="single"
+                  selected={dueDate}
+                  onSelect={setDueDate}
+                  initialFocus
+                />
+              </PopoverContent>
+            </Popover>
           </div>
-          <div>
-            <label>Priority</label>
+          <div className="space-y-2">
+            <label className="text-sm font-medium">Priority</label>
             <Select value={priority} onValueChange={(val) => setPriority(val)}>
               <SelectTrigger>
                 <SelectValue placeholder="Select priority" />

@@ -29,6 +29,13 @@
   --sidebar-accent-foreground: hsl(240 5.9% 10%);
   --sidebar-border: hsl(220 13% 91%);
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
+  --color-primary: #3b82f6;
+  --color-destructive: #ef4444;
+  --color-warning: #f59e0b;
+  --color-secondary: #6b7280;
+  --color-background: #ffffff;
+  --color-border: #e5e7eb;
+  --color-text: #333333;
 }
 
 .dark {
@@ -131,6 +138,125 @@
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer components {
+  .bg-card {
+    background-color: var(--card);
+  }
+
+  .text-card-foreground {
+    color: var(--card-foreground);
+  }
+
+  .bg-background {
+    background-color: var(--background);
+  }
+
+  .text-foreground {
+    color: var(--foreground);
+  }
+
+  .border-primary {
+    border-color: var(--primary);
+  }
+
+  .bg-primary {
+    background-color: var(--primary);
+  }
+
+  .text-primary-foreground {
+    color: var(--primary-foreground);
+  }
+
+  .border-muted {
+    border-color: var(--muted);
+  }
+
+  .input-error {
+    border: 1px solid var(--color-destructive);
+  }
+
+  .badge {
+    @apply px-2 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-primary {
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+
+  .badge-destructive {
+    background-color: var(--color-destructive);
+    color: #fff;
+  }
+
+  .badge-warning {
+    background-color: var(--color-warning);
+    color: #fff;
+  }
+
+  .badge-secondary {
+    background-color: var(--color-secondary);
+    color: #fff;
+  }
+
+  .tab-button {
+    border-bottom: 2px solid transparent;
+    padding: 0.5rem 1rem;
+    transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  }
+
+  .tab-button:hover {
+    background-color: hsl(220 13% 91% / 0.4);
+  }
+
+  .tab-button.active {
+    border-color: var(--color-primary);
+  }
+
+  .dark .tab-button:hover {
+    background-color: hsl(217.2 32.6% 17.5% / 0.4);
+  }
+
+  /* Add hover states to buttons and interactive elements */
+  button:hover:not(:disabled),
+  .button:hover:not(:disabled) {
+    background-color: hsl(220 13% 91% / 0.4);
+  }
+
+  .dark button:hover:not(:disabled),
+  .dark .button:hover:not(:disabled) {
+    background-color: hsl(217.2 32.6% 17.5% / 0.4);
+  }
+
+  /* Hover states for badges */
+  .badge:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
+  /* Hover state for cards */
+  .card:hover {
+    background-color: hsl(220 13% 91% / 0.1);
+  }
+
+  .dark .card:hover {
+    background-color: hsl(217.2 32.6% 17.5% / 0.1);
+  }
+
+  .card {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    padding: 1rem;
   }
 }
 
@@ -145,6 +271,19 @@
     a:nth-of-type(2) .logo {
       animation: logo-spin infinite 20s linear;
     }
+  }
+
+  .relative-icon {
+    position: relative;
+  }
+
+  .absolute-icon {
+    position: absolute;
+    right: 0.75rem;
+    top: 0.625rem;
+    height: 1rem;
+    width: 1rem;
+    color: #6b7280;
   }
 }
 
