@@ -17,14 +17,24 @@ const TaskCard = ({ task, onComplete, onDelete, onUpdate }) => {
             <h3 className="text-lg font-semibold mb-2">{task.title}</h3>
             <p className="text-gray-600 mb-4">{task.description}</p>
             <div className="flex gap-2 items-center">
-              <Badge variant={task.completed ? "secondary" : isOverdue ? "destructive" : "default"}>
+              <Badge className={`px-2 py-1 rounded font-medium ${
+                task.completed
+                  ? "bg-blue-600 text-white"   // Completed tasks
+                  : isOverdue
+                  ? "bg-purple-600 text-white" // Overdue tasks
+                  : "bg-teal-500 text-white"     // Upcoming tasks
+              }`}>
                 {task.completed ? "Completed" : isOverdue ? "Overdue" : format(dueDate, "PPP")}
               </Badge>
-              <Badge variant={
-                task.priority === "high" ? "destructive" :
-                task.priority === "medium" ? "default" :
-                "secondary"
-              }>
+              <Badge
+                className={`px-2 py-1 rounded font-medium ${
+                  task.priority === "high"
+                    ? "bg-red-500 text-white"
+                    : task.priority === "medium"
+                    ? "bg-yellow-400 text-black"
+                    : "bg-green-500 text-white"
+                }`}
+              >
                 {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)} Priority
               </Badge>
             </div>

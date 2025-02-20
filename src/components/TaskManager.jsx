@@ -119,7 +119,7 @@ const TaskManager = () => {
             />
           </div>
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
+            <DropdownMenuTrigger>
               <Button variant="outline">
                 <Filter className="mr-2 h-4 w-4" />
                 Filters
@@ -129,9 +129,9 @@ const TaskManager = () => {
               <DropdownMenuLabel>Priority</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={() => setFilterPriority('all')}>All</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setFilterPriority('high')}>High ⚠️</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setFilterPriority('medium')}>Medium ⚡</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setFilterPriority('low')}>Low 📌</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setFilterPriority('high')}>High </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setFilterPriority('medium')}>Medium </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setFilterPriority('low')}>Low </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           <Button onClick={() => setIsCreateModalOpen(true)}>
