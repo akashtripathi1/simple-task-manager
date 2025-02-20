@@ -38,7 +38,7 @@ const TaskModal = ({ isOpen, onClose, onSubmit, mode, initialData }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] p-6 rounded-md">
         <DialogHeader>
           <DialogTitle>{mode === 'create' ? 'Create Task' : 'Update Task'}</DialogTitle>
           <DialogDescription>
@@ -47,9 +47,9 @@ const TaskModal = ({ isOpen, onClose, onSubmit, mode, initialData }) => {
               : 'Update the details of your existing task.'}
           </DialogDescription>
         </DialogHeader>
-        <div className="space-y-4">
+        <div className="space-y-6">
           <div className="space-y-2">
-            <label className="text-sm font-medium">Title</label>
+            <label className="block text-sm font-medium mb-1">Title</label>
             <Input
               id="title"
               placeholder="Enter task title"
@@ -58,7 +58,7 @@ const TaskModal = ({ isOpen, onClose, onSubmit, mode, initialData }) => {
             />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium">Description</label>
+            <label className="block text-sm font-medium mb-1">Description</label>
             <Textarea 
               value={description} 
               onChange={(e) => setDescription(e.target.value)} 
@@ -66,11 +66,11 @@ const TaskModal = ({ isOpen, onClose, onSubmit, mode, initialData }) => {
             />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium">Due Date</label>
+            <label className="block text-sm font-medium mb-1">Due Date</label>
             <CustomCalendar selectedDate={dueDate} onSelect={setDueDate} />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium">Priority</label>
+            <label className="block text-sm font-medium mb-1">Priority</label>
             <Select value={priority} onValueChange={(val) => setPriority(val)}>
               <SelectTrigger>
                 <SelectValue placeholder="Select priority" />

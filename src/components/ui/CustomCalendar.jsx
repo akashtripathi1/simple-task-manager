@@ -31,7 +31,7 @@ const CustomCalendar = ({ selectedDate, onSelect }) => {
       <PopoverContent
         align="start"
         sideOffset={4}
-        className="w-auto p-2 bg-white dark:bg-gray-900 shadow-md rounded-lg"
+        className="w-auto p-2 bg-white shadow-md rounded-lg"
       >
         <ShadCalendar
           mode="single"
