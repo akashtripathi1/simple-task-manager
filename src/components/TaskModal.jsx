@@ -4,10 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select } from '@/components/ui/select';
 import { SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
-import { Calendar } from '@/components/ui/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { CalendarIcon } from 'lucide-react';
-import { format } from 'date-fns';
+import { CustomCalendar } from '@/components/ui/CustomCalendar';
 import { Button } from '@/components/ui/button';
 
 const TaskModal = ({ isOpen, onClose, onSubmit, mode, initialData }) => {
@@ -70,25 +67,7 @@ const TaskModal = ({ isOpen, onClose, onSubmit, mode, initialData }) => {
           </div>
           <div className="space-y-2">
             <label className="text-sm font-medium">Due Date</label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="w-full justify-start text-left font-normal"
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {dueDate ? format(dueDate, "PPP") : <span>Pick a date</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"
-                  selected={dueDate}
-                  onSelect={setDueDate}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
+            <CustomCalendar selectedDate={dueDate} onSelect={setDueDate} />
           </div>
           <div className="space-y-2">
             <label className="text-sm font-medium">Priority</label>
