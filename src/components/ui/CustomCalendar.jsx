@@ -17,26 +17,23 @@ const CustomCalendar = ({ selectedDate, onSelect }) => {
   };
 
   return (
-    // Set modal to true to ensure proper behavior inside a Dialog
-    <Popover modal={true} open={isOpen} onOpenChange={setIsOpen}>
+    <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger>
         <Button
+          onClick={() => setIsOpen(!isOpen)}
           variant="outline"
-          className="w-full justify-start text-left font-normal"
+          className="w-full flex justify-between items-center px-4 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-offset-2"
         >
-          <CalendarIcon className="mr-2 h-4 w-4" />
-          {selectedDate ? format(selectedDate, "PPP") : <span>Pick a date</span>}
+          {selectedDate ? format(selectedDate, "PPP") : "Pick a date"}
+          <CalendarIcon className="w-5 h-5 ml-2 text-gray-500" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent
-        align="start"
-        sideOffset={4}
-        className="w-auto p-2 bg-white shadow-md rounded-lg"
-      >
+      <PopoverContent align="start" className="w-auto p-2 shadow-lg rounded-lg bg-white">
         <ShadCalendar
           mode="single"
           selected={selectedDate}
           onSelect={handleSelect}
+          className="rounded-lg shadow-sm custom-calendar"
         />
       </PopoverContent>
     </Popover>
