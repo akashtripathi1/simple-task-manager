@@ -95,20 +95,9 @@ const TaskManager = () => {
 
   return (
     <div className="container mx-auto p-6 flex gap-6">
-      {/* Example sidebar to match screenshot layout */}
-      <aside className="hidden md:block w-1/4">
-        <div className="border border-border rounded p-4">
-          <h2 className="text-lg font-semibold mb-4 flex items-center">
-            <CalendarClock className="mr-2 h-4 w-4" />
-            Calendar
-          </h2>
-          {/* Remove placeholder text; put your actual calendar or date-picker here */}
-          {/* e.g., <MyCalendarComponent /> */}
-        </div>
-      </aside>
 
-      <main className="flex-1">
-        <div className="flex gap-4 mb-6">
+      <main className="flex-1 space-y-6 bg-white p-6 rounded-lg shadow-md">
+        <div className="flex gap-4 mb-6 items-center justify-between">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
             <Input
