@@ -15,7 +15,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from '@/components/ui/dropdown-menu'
 import { cn } from '../lib/utils'
-import toast, { Toaster } from 'react-hot-toast'
+import { toast } from 'react-hot-toast'
 import TaskCard from './TaskCard'
 import TaskModal from './TaskModal'
 import { addTask, updateTask, deleteTask, completeTask } from '../redux/tasksSlice'
@@ -97,15 +97,13 @@ const TaskManager = () => {
     <div className="container mx-auto p-6 flex gap-6">
       {/* Example sidebar to match screenshot layout */}
       <aside className="hidden md:block w-1/4">
-        <div className="border rounded p-4">
+        <div className="border border-border rounded p-4">
           <h2 className="text-lg font-semibold mb-4 flex items-center">
             <CalendarClock className="mr-2 h-4 w-4" />
             Calendar
           </h2>
-          {/* This is a placeholder; replace with your own calendar UI */}
-          <div className="mt-2 text-gray-600 text-sm">
-            (Calendar placeholder)
-          </div>
+          {/* Remove placeholder text; put your actual calendar or date-picker here */}
+          {/* e.g., <MyCalendarComponent /> */}
         </div>
       </aside>
 
@@ -199,10 +197,6 @@ const TaskManager = () => {
           onSubmit={handleUpdateTask}
           initialData={currentTask}
           mode="update"
-        />
-        <Toaster
-          position="top-right"
-          toastOptions={{ duration: 3000 }}
         />
       </main>
     </div>
