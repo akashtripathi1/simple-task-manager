@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select'
-import CalendarComponent from '@/components/ui/calendar'
+import Calendar  from '@/components/ui/calendar'
 
 const TaskModal = ({ isOpen, onClose, onSubmit, mode, initialData }) => {
   const [title, setTitle] = useState(initialData ? initialData.title : '')
@@ -52,7 +52,7 @@ const TaskModal = ({ isOpen, onClose, onSubmit, mode, initialData }) => {
           </div>
           <div>
             <label>Due Date</label>
-            <CalendarComponent date={dueDate} onChange={setDueDate} />
+            <Calendar date={dueDate} onChange={setDueDate} />
           </div>
           <div>
             <label>Priority</label>
