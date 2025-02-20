@@ -1,33 +1,34 @@
-import React, { useState, useEffect } from 'react'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from '@/components/ui/dialog'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select'
-import { Calendar } from '@/components/ui/calendar'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { CalendarIcon } from 'lucide-react'
-import { format } from 'date-fns'
+import React, { useState, useEffect } from 'react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Select } from '@/components/ui/select';
+import { SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
+import { Calendar } from '@/components/ui/calendar';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { CalendarIcon } from 'lucide-react';
+import { format } from 'date-fns';
+import { Button } from '@/components/ui/button';
 
 const TaskModal = ({ isOpen, onClose, onSubmit, mode, initialData }) => {
-  const [title, setTitle] = useState(initialData ? initialData.title : '')
-  const [description, setDescription] = useState(initialData ? initialData.description : '')
-  const [dueDate, setDueDate] = useState(initialData ? new Date(initialData.dueDate) : new Date())
-  const [priority, setPriority] = useState(initialData ? initialData.priority : 'medium')
+  const [title, setTitle] = useState(initialData ? initialData.title : '');
+  const [description, setDescription] = useState(initialData ? initialData.description : '');
+  const [dueDate, setDueDate] = useState(initialData ? new Date(initialData.dueDate) : new Date());
+  const [priority, setPriority] = useState(initialData ? initialData.priority : 'medium');
 
   useEffect(() => {
     if (initialData) {
-      setTitle(initialData.title)
-      setDescription(initialData.description)
-      setDueDate(new Date(initialData.dueDate))
-      setPriority(initialData.priority)
+      setTitle(initialData.title);
+      setDescription(initialData.description);
+      setDueDate(new Date(initialData.dueDate));
+      setPriority(initialData.priority);
     } else {
-      setTitle('')
-      setDescription('')
-      setDueDate(new Date())
-      setPriority('medium')
+      setTitle('');
+      setDescription('');
+      setDueDate(new Date());
+      setPriority('medium');
     }
-  }, [initialData, isOpen])
+  }, [initialData, isOpen]);
 
   const handleSubmit = () => {
     onSubmit({
@@ -35,12 +36,12 @@ const TaskModal = ({ isOpen, onClose, onSubmit, mode, initialData }) => {
       description,
       dueDate: dueDate.toISOString(),
       priority
-    })
-  }
+    });
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] bg-card text-card-foreground">
+      <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>{mode === 'create' ? 'Create Task' : 'Update Task'}</DialogTitle>
           <DialogDescription>
@@ -109,7 +110,7 @@ const TaskModal = ({ isOpen, onClose, onSubmit, mode, initialData }) => {
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  )
-}
+  );
+};
 
-export default TaskModal
+export default TaskModal;
